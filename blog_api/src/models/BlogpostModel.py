@@ -1,6 +1,7 @@
 # src/models/BlogpostModel.py
 from . import db
 import datetime
+from marshmallow import fields, Schema
 
 
 class BlogpostModel(db.Model):
@@ -14,11 +15,13 @@ class BlogpostModel(db.Model):
     title = db.Column(db.String(128), nullable=False)
     contents = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime)
+    owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)  # add this new line part 1
     modified_at = db.Column(db.DateTime)
 
     def __init__(self, data):
         self.title = data.get('title')
         self.contents = data.get('contents')
+        self.owner_id = data.get('owner_id') # add this new line part 1
         self.created_at = datetime.datetime.utcnow()
         self.modified_at = datetime.datetime.utcnow()
 
@@ -34,7 +37,7 @@ class BlogpostModel(db.Model):
 
     def delete(self):
         db.session.delete(self)
-        de.session.commit()
+        db.session.commit()
 
     @staticmethod
     def get_all_blogposts():
@@ -46,3 +49,16 @@ class BlogpostModel(db.Model):
 
     def __repr__(self):
         return '<id {}>'.format(self.id)
+
+
+# add this new class part 1
+class BlogpostSchema(Schema):
+    """
+    Blogpost Schema
+    """
+    id = fields.Int(dump_only=True)
+    title = fields.Str(required=True)
+    contents = fields.Str(required=True)
+    owner_id = fields.Int(required=True)
+    created_at = fields.DateTime(dump_only=True)
+    modified_at = fields.DateTime(dump_only=True)
