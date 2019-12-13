@@ -23,7 +23,7 @@ def create_app(env_name):
     db.init_app(app)
 
     app.register_blueprint(user_blueprint, url_prefix='/api/v1/users')
-    
+
     @app.route('/', methods=['GET'])
     def index():
         """
