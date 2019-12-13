@@ -3,12 +3,8 @@
 from flask import Flask
 
 from .config import app_config
-from .models import db
-from .models import bcrypt
+from .models import bcrypt, db
 from flask_sqlalchemy import SQLAlchemy
-
-# setup db
-db = SQLAlchemy()
 
 
 def create_app(env_name):
@@ -16,15 +12,14 @@ def create_app(env_name):
     Create app
     """
 
-    # app initialization
+    # app initiliazation
     app = Flask(__name__)
 
     app.config.from_object(app_config[env_name])
-
     # initializing bcrypt
-    bcrypt.init_app(app)  # add this line
+    bcrypt.init_app(app)
 
-    db.init_app(app)  # add this line
+    db.init_app(app)
 
     @app.route('/', methods=['GET'])
     def index():

@@ -21,6 +21,8 @@ class BlogpostModel(db.Model):
     def __init__(self, data):
         self.title = data.get('title')
         self.contents = data.get('contents')
+        self.created_at = datetime.datetime.utcnow()
+        self.modified_at = datetime.datetime.utcnow()
         self.owner_id = data.get('owner_id')
         self.created_at = datetime.datetime.utcnow()
         self.modified_at = datetime.datetime.utcnow()
