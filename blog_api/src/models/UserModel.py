@@ -1,8 +1,9 @@
 # src/models/UserModel.py
+
 from marshmallow import fields, Schema
 import datetime
-from . import db
-from ..app import bcrypt  # add this line
+from . import db  # , bcrypt
+from ..app import bcrypt
 from .BlogpostModel import BlogpostSchema
 
 
@@ -20,7 +21,7 @@ class UserModel(db.Model):
     password = db.Column(db.String(128), nullable=True)
     created_at = db.Column(db.DateTime)
     modified_at = db.Column(db.DateTime)
-    blogposts = db.relationship('BlogpostModel', backref='users', lazy=True)  # add this new line part 1.1
+    blogposts = db.relationship('BlogpostModel', backref='users', lazy=True)
 
     # class constructor
     def __init__(self, data):
@@ -29,7 +30,7 @@ class UserModel(db.Model):
         """
         self.name = data.get('name')
         self.email = data.get('email')
-        self.password = self.__generate_hash(data.get('password'))  # add this line Part 1
+        self.password = self.__generate_hash(data.get('password'))
         self.created_at = datetime.datetime.utcnow()
         self.modified_at = datetime.datetime.utcnow()
 
@@ -39,8 +40,8 @@ class UserModel(db.Model):
 
     def update(self, data):
         for key, item in data.items():
-            if key == 'password':  # add this new line part 1
-                self.password = self.__generate_hash(value)  # add this new line part 1
+            if key == 'password':  # add this new line
+                self.password = self.__generate_hash(value)  # add this new line
             setattr(self, key, item)
         self.modified_at = datetime.datetime.utcnow()
         db.session.commit()
@@ -48,14 +49,6 @@ class UserModel(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
-
-    # add this new method partg 1
-    def __generate_hash(self, password):
-        return bcrypt.generate_password_hash(password, rounds=10).decode("utf-8")
-
-    # add this new method part 1
-    def check_hash(self, password):
-        return bcrypt.check_password_hash(self.password, password)
 
     @staticmethod
     def get_all_users():
@@ -65,11 +58,21 @@ class UserModel(db.Model):
     def get_one_user(id):
         return UserModel.query.get(id)
 
+        # add this new method
+
+    def __generate_hash(self, password):
+        return bcrypt.generate_password_hash(password, rounds=10).decode("utf-8")
+
+        # add this new method
+
+    def check_hash(self, password):
+        return bcrypt.check_password_hash(self.password, password)
+
     def __repr(self):
         return '<id {}>'.format(self.id)
 
 
-# add this class 1.1
+# add this class
 class UserSchema(Schema):
     """
     User Schema
