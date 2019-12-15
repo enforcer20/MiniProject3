@@ -1,5 +1,7 @@
 ## Mini Project 3: Web Application by Karan Walanj (enforcer20)
 
+In the setup branch, we set up the app with Flask, SQLAlchemy and Docker
+
 To get to the Heroku deployment, please click here: https://blog-api-tutorial-karanw.herokuapp.com/
 
 Below is an easy access to other branches:
