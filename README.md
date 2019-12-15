@@ -1,5 +1,7 @@
 ## Mini Project 3: Web Application by Karan Walanj (enforcer20)
 
+The goal of this branch is the conclusion where we set up unit tests for our app and also how to host it on Heroku.
+
 To get to the Heroku deployment, please click here: https://blog-api-tutorial-karanw.herokuapp.com/
 
 Below is an easy access to other branches:
