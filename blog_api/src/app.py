@@ -27,7 +27,7 @@ def create_app(env_name):
     app.register_blueprint(user_blueprint, url_prefix='/api/v1/users')
     app.register_blueprint(blogpost_blueprint, url_prefix='/api/v1/blogposts')
 
-    @app.route('/', methods=['GET'])
+    @app.route('/')  # @app.route('/', methods=['GET'])
     def index():
         """
         example endpoint
