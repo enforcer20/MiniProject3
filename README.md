@@ -1,6 +1,6 @@
 ## Mini Project 3: Web Application by Karan Walanj (enforcer20)
 
-In part 2 branch, we created app endpoints by designing 5 blogposts endpoints.
+In part 2 branch, we created app endpoints by designing 5 blogpost endpoints.
 
 To get to the Heroku deployment, please click here: https://blog-api-tutorial-karanw.herokuapp.com/
 
