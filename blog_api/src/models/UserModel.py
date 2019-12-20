@@ -1,5 +1,5 @@
 # src/models/UserModel.py
-from marshmallow import fields, Schema
+from marshmallow import Schema, fields
 import datetime
 
 #from pipenv.vendor.tomlkit import value

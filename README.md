@@ -1,6 +1,6 @@
 ## Mini Project 3: Web Application by Karan Walanj (enforcer20)
 
-In part 1 branch, we set up a simple RESTful API with four basic CRUD operation including how to carry out user Authentications using JSON Web Token(JWT). We set up configuring Flask environment, creating models, making and applying migrations to the DB, grouping resources using flask blueprint, validating the authenticity of a user using JWT token.
+In part 1 branch, we set up a simple RESTful API with four basic CRUD operations including how to carry out user Authentications using JSON Web Token(JWT). We set up configuring Flask environment, creating models, making and applying migrations to the DB, grouping resources using flask blueprint, validating the authenticity of a user using JWT token.
 
 To get to the Heroku deployment, please click here: https://blog-api-tutorial-karanw.herokuapp.com/
 
