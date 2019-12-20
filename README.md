@@ -4,7 +4,7 @@ The goal of this branch is the conclusion where we set up unit tests for our app
 
 To get to the Heroku deployment, please click here: https://blog-api-tutorial-karanw.herokuapp.com/
 
-Below is an easy access to other branches:
+Below is an easy access to other branches: 
 
 1. [Setup](https://github.com/enforcer20/MiniProject3/tree/setup) - refers to the first setup assignment, labeled "Homework: Setup Docker, Flask, SqlAlchmy" in Canvas, referencing URL [here](https://medium.com/@hmajid2301/implementing-sqlalchemy-with-docker-cb223a8296de)
 2. [part1New](https://github.com/enforcer20/MiniProject3/tree/Part1New) - refers to the first setup assignment, labeled "Homework: Web Application - Part 1" in Canvas, referencing URL [here](https://www.codementor.io/@olawalealadeusi896/restful-api-with-python-flask-framework-and-postgres-db-part-1-kbrwbygx5)

@@ -27,7 +27,7 @@ class Production(object):
 
 class Testing(object):
     """
-    Development environment configuration
+    Development environment configurations
     """
     TESTING = True
     JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY')
